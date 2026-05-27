@@ -9,6 +9,9 @@ on:
 permissions:
   contents: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+
 jobs:
   build-and-deploy:
     concurrency: ci-${{ github.ref }}
@@ -19,8 +22,6 @@ jobs:
 
       - name: Install pnpm 📦
         uses: pnpm/action-setup@v4
-        with:
-          version: 10.4.1
 
       - name: Setup Node ⚙️
         uses: actions/setup-node@v4
